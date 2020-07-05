@@ -29,11 +29,6 @@ The data is ingested from _Amazon S3_ to _Amazon Redshift_ databases. Data gets 
    ```sh
   SELECT song_id, COUNT(song_id) from songplays GROUP BY song_id ORDER BY COUNT(song_id) DESC LIMIT 1;
   SELECT artist_id, COUNT(artist_id) from songplays GROUP BY artist_id ORDER BY COUNT(artist_id) DESC LIMIT 1;
-  SELECT time.weekday, COUNT(time.weekday)
-  FROM time JOIN songplays
-  ON time.start_time = songplays.start_time
-  GROUP BY time.weekday
-  ORDER BY COUNT(time.weekday) DESC LIMIT 1;
    ```
 - Weekday with most activity?
    ```sh
