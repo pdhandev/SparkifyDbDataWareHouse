@@ -1,0 +1,31 @@
+# Some queries and results that I tried on Query Editor
+SELECT artists.name as name, COUNT(songplays.artist_id) AS cnt from songplays 
+JOIN artists
+ON artists.artist_id = songplays.artist_id
+GROUP BY name  ORDER BY cnt DESC LIMIT 1;
+name, cnt
+Dwight Yoakam, 37
+
+SELECT time.weekday, COUNT(time.weekday)
+FROM time JOIN songplays
+ON time.start_time = songplays.start_time
+GROUP BY time.weekday
+ORDER BY COUNT(time.weekday) DESC LIMIT 1;
+
+weekday, cnt
+3, 1364
+
+
+SELECT time.weekday, COUNT(time.weekday)
+FROM time JOIN songplays
+ON time.start_time = songplays.start_time
+GROUP BY time.weekday
+ORDER BY COUNT(time.weekday) DESC;
+weekday, cnt
+3,1364
+5,1295
+2,1071
+4,1052
+1,1014
+6,628
+0,396
